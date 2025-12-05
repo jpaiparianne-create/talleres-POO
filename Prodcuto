@@ -1,0 +1,38 @@
+public class Producto {
+    private String codigoBarras;  // NO debe cambiar nunca
+    private double precio;
+
+    public Producto(String codigoBarras, double precio) {
+        this.codigoBarras = codigoBarras;
+        this.precio = precio;
+    }
+
+    public String getCodigoBarras() {
+        return codigoBarras;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+}
+----------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+
+        Producto p = new Producto("XYZ-999", 15.99);
+
+        // Cambiar precio (SÍ se puede)
+        p.setPrecio(20.50);
+
+        System.out.println("Código de barras: " + p.getCodigoBarras());
+        System.out.println("Precio actualizado: " + p.getPrecio());
+
+        // p.codigoBarras = "otro";   NO SE PUEDE,
+        // No existe setCodigoBarras() → el código es inmutable
+    }
+}
