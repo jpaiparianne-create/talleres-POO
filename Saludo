@@ -1,0 +1,17 @@
+public class Saludo {
+
+    public void decirHola() {
+        System.out.println("Hola!");
+    }
+
+    public void saludarCompleto() {
+        this.decirHola();
+        System.out.println("Espero que estés teniendo un buen día.");
+        System.out.println("Este es un saludo completo.");
+    }
+
+    public static void main(String[] args) {
+        Saludo s = new Saludo();
+        s.saludarCompleto();
+    }
+}
