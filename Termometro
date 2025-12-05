@@ -1,0 +1,22 @@
+public class Termometro {
+    private double temperaturaCelsius;
+
+    public void setTemperatura(double temp) {
+        this.temperaturaCelsius = temp;
+    }
+
+    public double getTemperaturaFahrenheit() {
+        return (temperaturaCelsius * 1.8) + 32;
+    }
+}
+--------------------------------------------------------
+public class Main {
+    public static void main(String[] args) {
+
+        Termometro t = new Termometro();
+
+        t.setTemperatura(25); // Celsius
+
+        System.out.println("Temperatura en Fahrenheit: " + t.getTemperaturaFahrenheit());
+    }
+}
