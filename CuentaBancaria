@@ -1,0 +1,23 @@
+public class CuentaBancaria {
+    private String nombreTitular;
+    private String numeroCuenta;
+    private double saldo;
+
+    public CuentaBancaria(String nombreTitular, String numeroCuenta) {
+        this.nombreTitular = nombreTitular;
+        this.numeroCuenta = numeroCuenta;
+        this.saldo = 0;
+    }
+
+    public String getNombreTitular() {
+        return nombreTitular;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+}
