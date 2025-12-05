@@ -1,0 +1,25 @@
+public class Producto {
+    private String nombre;
+    private double precio;
+    private int stock;
+    private String categoria;
+
+    public Producto(String nombre, double precio, int stock, String categoria) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+        this.categoria = categoria;
+    }
+
+    public void mostrar() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Precio: " + precio);
+        System.out.println("Stock: " + stock);
+        System.out.println("Categoría: " + categoria);
+    }
+
+    public static void main(String[] args) {
+        Producto p = new Producto("Teclado", 150000, 20, "Periféricos");
+        p.mostrar();
+    }
+}
