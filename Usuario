@@ -1,0 +1,25 @@
+public class Usuario {
+    private String nombre;
+    private String rol;
+
+    public Usuario(String nombre, String rol) {
+        this.nombre = nombre;
+        this.rol = rol;
+    }
+
+    public Usuario(String nombre) {
+        this(nombre, "Invitado");
+    }
+
+    public void mostrar() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Rol: " + rol);
+    }
+
+    public static void main(String[] args) {
+        Usuario u1 = new Usuario("Ana", "Admin");
+        Usuario u2 = new Usuario("Luis");
+        u1.mostrar();
+        u2.mostrar();
+    }
+}
