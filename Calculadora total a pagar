@@ -1,0 +1,55 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // 1. Pedir el monto de la compra
+        Console.Write("Ingrese el valor de la compra: ");
+        double compra = double.Parse(Console.ReadLine());
+
+        // 2. Preguntar si paga con tarjeta del almacén
+        Console.Write("¿Paga con tarjeta del almacén? (si/no): ");
+        string tarjeta = Console.ReadLine().ToLower();
+
+        double descuentoPrincipal = 0;
+        double descuentoAdicional = 0;
+
+        // 3. Descuento principal según monto
+        if (compra > 500000)
+        {
+            descuentoPrincipal = 0.15;
+        }
+        else if (compra >= 300000 && compra <= 500000)
+        {
+            descuentoPrincipal = 0.10;
+        }
+        else
+        {
+            descuentoPrincipal = 0;
+        }
+
+        // 4. Descuento adicional por forma de pago
+        if (tarjeta == "si")
+        {
+            descuentoAdicional = 0.05;
+        }
+
+        // 5. Calcular el porcentaje total de descuento
+        double porcentajeTotal = descuentoPrincipal + descuentoAdicional;
+
+        // 6. Calcular valor del descuento
+        double valorDescuento = compra * porcentajeTotal;
+
+        // 7. Calcular precio final
+        double totalPagar = compra - valorDescuento;
+
+        // 8. Mostrar resultados
+        Console.WriteLine("\n---------------------------------");
+        Console.WriteLine("Total antes de descuentos: " + compra);
+        Console.WriteLine("Porcentaje total de descuento: " + (porcentajeTotal * 100) + "%");
+        Console.WriteLine("Valor del descuento aplicado: " + valorDescuento);
+        Console.WriteLine("Total final a pagar: " + totalPagar);
+        Console.WriteLine("---------------------------------");
+    }
+}
