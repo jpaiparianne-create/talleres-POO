@@ -1,0 +1,24 @@
+public class Rectangulo {
+    private int ancho;
+    private int alto;
+
+    public Rectangulo(int ancho, int alto) {
+        this.ancho = ancho;
+        this.alto = alto;
+    }
+
+    public Rectangulo() {
+        this(10, 10);
+    }
+
+    public void mostrar() {
+        System.out.println("Ancho: " + ancho + " - Alto: " + alto);
+    }
+
+    public static void main(String[] args) {
+        Rectangulo r1 = new Rectangulo(5, 8);
+        Rectangulo r2 = new Rectangulo();
+        r1.mostrar();
+        r2.mostrar();
+    }
+}
