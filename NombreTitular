@@ -1,0 +1,48 @@
+public class CuentaBancaria {
+    private String nombreTitular;
+    private String numeroCuenta;
+    private double saldo;
+
+    public CuentaBancaria(String nombreTitular, String numeroCuenta) {
+        this.nombreTitular = nombreTitular;
+        this.numeroCuenta = numeroCuenta;
+        this.saldo = 0;
+    }
+
+    public String getNombreTitular() {
+        return nombreTitular;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+}
+
+
+---------------------------------------------------------
+
+public class Main {
+
+    // Códigos ANSI para colores
+    public static final String ROJO = "\u001B[31m";
+    public static final String RESET = "\u001B[0m";
+
+    public static void main(String[] args) {
+
+        CuentaBancaria c1 = new CuentaBancaria("Arianne", "AC-001");
+        CuentaBancaria c2 = new CuentaBancaria("Juliana", "AC-002");
+        CuentaBancaria c3 = new CuentaBancaria("Estefania", "AC-003");
+
+        // Asignar saldos
+        c1.setSaldo(500);
+        c2.setSaldo(1200);
+        c3.setSaldo(200);
+
+        // Encontrar la cuenta con menor saldo
+        CuentaBancaria menor = c1;
+        if (c2.getSaldo() < menor.getSaldo()) menor = c2;
+        if (c3.getSaldo() < menor.getSaldo()) menor = c3;
