@@ -1,0 +1,67 @@
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> nombres = new List<string>();
+        List<double> tareas = new List<double>();
+        List<double> quices = new List<double>();
+        List<double> examenes = new List<double>();
+        List<double> notasFinales = new List<double>();
+        List<string> estados = new List<string>();
+        List<string> niveles = new List<string>();
+
+        Console.Write("¿Cuántos estudiantes desea registrar? ");
+        int cantidad = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < cantidad; i++)
+        {
+            Console.WriteLine($"\n--- Estudiante #{i + 1} ---");
+
+            Console.Write("Nombre: ");
+            string nombre = Console.ReadLine();
+            nombres.Add(nombre);
+
+            Console.Write("Nota Tarea (0-50): ");
+            double nt = double.Parse(Console.ReadLine());
+            tareas.Add(nt);
+
+            Console.Write("Nota Quiz (0-50): ");
+            double nq = double.Parse(Console.ReadLine());
+            quices.Add(nq);
+
+            Console.Write("Nota Examen Final (0-50): ");
+            double ne = double.Parse(Console.ReadLine());
+            examenes.Add(ne);
+
+            // Cálculo de nota final
+            double notaFinal = (nt * 0.30) + (nq * 0.30) + (ne * 0.40);
+            notasFinales.Add(notaFinal);
+
+            // Estado
+            string estado = (notaFinal >= 30) ? "Aprueba" : "Reprueba";
+            estados.Add(estado);
+
+            // Nivel
+            string nivel = "";
+            if (notaFinal <= 20) nivel = "Deficiente";
+            else if (notaFinal <= 29) nivel = "Insuficiente";
+            else if (notaFinal <= 40) nivel = "Aceptable";
+            else nivel = "Sobresaliente";
+
+            niveles.Add(nivel);
+        }
+
+        Console.WriteLine("\n========== RESULTADOS ==========");
+        for (int i = 0; i < cantidad; i++)
+        {
+            Console.WriteLine($"\nEstudiante: {nombres[i]}");
+            Console.WriteLine($"Nota Final: {notasFinales[i]}");
+            Console.WriteLine($"Nivel Académico: {niveles[i]}");
+            Console.WriteLine($"Estado: {estados[i]}");
+        }
+    }
+}
