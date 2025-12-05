@@ -1,0 +1,27 @@
+public class Documento {
+    private String contenido;
+
+    public Documento(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public void imprimir() {
+        Impresora.imprimirDocumento(this);
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public static void main(String[] args) {
+        Documento d = new Documento("Este es un documento importante.");
+        d.imprimir();
+    }
+}
+
+class Impresora {
+    public static void imprimirDocumento(Documento doc) {
+        System.out.println("Imprimiendo documento:");
+        System.out.println(doc.getContenido());
+    }
+}
