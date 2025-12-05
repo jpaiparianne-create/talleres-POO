@@ -1,0 +1,22 @@
+public class Cadena {
+    private int valor;
+
+    public Cadena(int valor) {
+        this.valor = valor;
+    }
+
+    public Cadena sumar(int numero) {
+        this.valor += numero;
+        return this;
+    }
+
+    public Cadena mostrar() {
+        System.out.println("Valor actual: " + this.valor);
+        return this;
+    }
+
+    public static void main(String[] args) {
+        Cadena c = new Cadena(0);
+        c.sumar(5).sumar(10).mostrar();
+    }
+}
