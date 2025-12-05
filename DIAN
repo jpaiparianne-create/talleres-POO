@@ -1,0 +1,57 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // 1. Ingreso de datos
+        Console.Write("Ingrese el sueldo mensual: ");
+        double sueldo = double.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese la deducción por educación: ");
+        double deduccionEducacion = double.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese la deducción por medicina: ");
+        double deduccionMedicina = double.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese el tipo de contribuyente (natural/empresa/otro): ");
+        string tipo = Console.ReadLine().ToLower();
+
+        Console.Write("Ingrese el valor de la retención: ");
+        double retencion = double.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese el valor del descuento (si no aplica coloque 0): ");
+        double descuento = double.Parse(Console.ReadLine());
+
+        // 2. Calcular base gravable
+        double baseGravable = sueldo - (deduccionEducacion + deduccionMedicina);
+
+        // 3. Calcular IVA según tipo de contribuyente
+        double iva = 0;
+
+        if (tipo == "natural" && baseGravable > 3000000)
+        {
+            iva = baseGravable * 0.10;
+        }
+        else if (tipo == "empresa" && baseGravable > 4000000)
+        {
+            iva = baseGravable * 0.20;
+        }
+        else
+        {
+            iva = 0;
+        }
+
+        // 4. Total final a pagar
+        double totalFinal = baseGravable + iva - retencion - descuento;
+
+        // 5. Mostrar resultados
+        Console.WriteLine("\n----------------------------------");
+        Console.WriteLine("Base gravable: " + baseGravable);
+        Console.WriteLine("Valor del IVA: " + iva);
+        Console.WriteLine("Retención aplicada: " + retencion);
+        Console.WriteLine("Descuento aplicado: " + descuento);
+        Console.WriteLine("TOTAL FINAL A PAGAR: " + totalFinal);
+        Console.WriteLine("----------------------------------");
+    }
+}
