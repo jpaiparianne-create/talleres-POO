@@ -1,0 +1,43 @@
+public class Empleado {
+    private String nombre;
+    private int edad;
+
+    public String getName() {
+        return nombre;
+    }
+
+    public void setName(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int nuevaEdad) {
+        if (nuevaEdad < 18 || nuevaEdad > 65) {
+            System.out.println("Edad no permitida para trabajar");
+        } else {
+            this.edad = nuevaEdad;
+        }
+    }
+}
+---------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+
+        Empleado e = new Empleado();
+
+        e.setName("Arianne");
+
+        // Intentar asignar edad no válida
+        e.setEdad(10); // debe mostrar "Edad no permitida para trabajar"
+
+        // Edad válida
+        e.setEdad(25);
+
+        System.out.println("Empleado: " + e.getName());
+        System.out.println("Edad final: " + e.getEdad());
+    }
+}
